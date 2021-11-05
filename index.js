@@ -28,6 +28,13 @@ async function run() {
         const ordersCollection = database.collection('allOrders');
 
 
+        //Get Blogs Function
+        app.get('/blogs', async (req, res) => {
+            const result = await blogCollection.find({}).toArray();
+            res.json(result);
+        })
+
+
         //Add Tour Post Function 
         app.post('/addtour', async (req, res) => {
             const newService = req.body;
